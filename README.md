@@ -1,34 +1,34 @@
 # Short URL Generator
 
-## Overview
-
-Short URL Generator is a web application built with Node.js and Express.js that allows users to create and manage short URLs. It uses MongoDB for data storage and includes features for generating short URLs, tracking visit history, and providing analytics.
+Short URL Generator is a simple web application built with Node.js, Express.js, and MongoDB for creating and managing short URLs. It provides a convenient way to generate short links, track visit history, and retrieve analytics for each short URL.
 
 ## Table of Contents
 
 - [Features](#features)
-- [Prerequisites](#prerequisites)
-- [Installation](#installation)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
 - [Usage](#usage)
-- [Routes](#routes)
-- [Contributing](#contributing)
-- [License](#license)
+- [API Endpoints](#api-endpoints)
 
 ## Features
 
-- Generate new short URLs.
+- Generate short URLs for easy sharing.
 - Track visit history for each short URL.
-- Retrieve analytics for a specific short URL.
+- Retrieve analytics, including the total number of clicks and visit history.
+- Simple and lightweight.
 
-## Prerequisites
+## Getting Started
 
-Before you begin, ensure you have the following installed:
+### Prerequisites
 
-- Node.js
-- MongoDB
-- npm (Node Package Manager)
+Make sure you have the following installed on your machine:
 
-## Installation
+- [Node.js](https://nodejs.org/)
+- [MongoDB](https://www.mongodb.com/try/download/community)
+
+
+### Installation
 
 1. Clone the repository:
 
@@ -41,7 +41,29 @@ Before you begin, ensure you have the following installed:
     ```bash
     npm install
 
-3.Start the application:
-
-
+3. Start the application:
+   
+    ```bash
     npm start
+
+## Usage
+
+1. Open your browser and navigate to http://localhost:8001.
+2. Use the provided API endpoints for URL shortening and analytics.
+
+## API Endpoints
+
+### 1. Generate Short URL
+
+- **Endpoint:** `POST /url`
+- **Request Body:** `{ "url": "original-url" }`
+- **Response:**
+  ```json
+  { "id": "generated-short-id" }
+
+### 2. Get Analytics for Short URL
+
+- **Endpoint:** `GET /url/analytics/:shortId`
+- **Response:**
+  ```json
+  { "totalClicks": 10, "analytics": [{ "timestamp": 1637395214000 }] }
